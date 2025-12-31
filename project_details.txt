@@ -1,0 +1,67 @@
+Project Name: Chatbot Bibliothèque Borj-El-Eilm
+
+Description:
+This is a Flask-based chatbot application for searching documents in the Borj-El-Eilm library. It uses advanced text similarity algorithms to find documents by code, reference, or name.
+
+Main Technologies:
+- Backend: Python Flask
+- Frontend: HTML, CSS, JavaScript
+- Data Processing: Pandas, Scikit-learn, NumPy
+- Text Similarity: TF-IDF, Cosine Similarity, Jaro-Winkler, RapidFuzz
+- Data Source: Excel file (BAI.xlsx)
+
+Key Features:
+- Intelligent document search by code, reference, or designation
+- Multiple similarity algorithms for accurate results
+- Real-time chat interface
+- Voice input/output capabilities
+- Dark/light theme toggle
+- Statistics display (total items, stock)
+- Responsive design
+
+API Endpoints:
+- / (GET): Main page with chat interface
+- /api/search (POST): Search for documents
+- /api/stats (GET): Get library statistics
+- /api/suggestions (GET): Get search suggestions
+
+Dependencies (from requirements.txt):
+- Flask==2.3.2
+- Flask-CORS==4.0.0
+- pandas==2.0.3
+- openpyxl==3.1.2
+- scikit-learn==1.3.0
+- numpy==1.24.3
+- jellyfish==1.0.3
+- rapidfuzz==3.6.1
+
+File Structure Overview:
+- app.py: Main Flask application with search logic
+- requirements.txt: Python dependencies
+- templates/index.html: Main HTML template
+- static/style.css: CSS stylesheets
+- static/script.js: JavaScript for frontend functionality
+- data/BAI.xlsx: Excel data file with document information
+
+Search Functionality:
+- Exact search for codes and references
+- Similarity-based search using TF-IDF and cosine similarity
+- Fuzzy string matching with Jaro-Winkler and RapidFuzz
+- Stock-based filtering
+- Multi-field search combining code, reference, and designation
+
+Frontend Features:
+- Chat interface with bot and user messages
+- Real-time search results display
+- Voice input and output
+- Quick search buttons
+- Theme switching
+- Responsive design for mobile devices
+
+Data Processing:
+- Loads Excel data with document information
+- Preprocesses text for search optimization
+- Creates multiple TF-IDF vectorizers for different search types
+- Handles missing data and type conversions
+
+This application provides an intelligent way to search through library documents using natural language queries and advanced text matching techniques.

@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Chatbot - Bibliothèque Borj-El-Eilm</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700&family=Roboto:wght@300;400;500&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <div class="logo-header">
+                <i class="fas fa-book-open"></i>
+                <h1>Bibliothèque Borj-El-Eilm</h1>
+            </div>
+            <div class="header-controls">
+                <button id="theme-toggle" title="Changer de thème">
+                    <i class="fas fa-moon"></i>
+                </button>
+                <div class="subtitle">Chatbot intelligent pour la recherche de documents</div>
+            </div>
+        </header>
+        
+        <main>
+            <div class="chat-container">
+                <div class="chat-header">
+                    <div class="bot-info">
+                        <div class="bot-avatar">
+                            <i class="fas fa-robot"></i>
+                        </div>
+                        <div>
+                            <h3>Assistant Bibliothèque</h3>
+                            <p>Posez-moi des questions sur les documents</p>
+                        </div>
+                    </div>
+                    <div class="stats">
+                        <div class="stat-item">
+                            <i class="fas fa-book"></i>
+                            <span id="total-items">--</span> documents
+                        </div>
+                        <div class="stat-item">
+                            <i class="fas fa-boxes"></i>
+                            <span id="total-stock">--</span> en stock
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="chat-messages" id="chat-messages">
+                    <div class="message bot-message">
+                        <div class="message-content">
+                            <div class="message-header">
+                                <strong>Assistant Bibliothèque</strong>
+                                <span class="message-time">Maintenant</span>
+                            </div>
+                            <p>Bonjour ! Je suis l'assistant de la bibliothèque Borj-El-Eilm. Vous pouvez me demander des informations sur les documents par leur code, référence ou nom. Comment puis-je vous aider aujourd'hui ?</p>
+                            <div class="examples">
+                                <p><strong>Exemples de questions :</strong></p>
+                                <ul>
+                                    <li>"Recherche pour C1"</li>
+                                    <li>"Trouve-moi Art5"</li>
+                                    <li>"Documents avec référence R10"</li>
+                                    <li>"Montre-moi les articles en stock"</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="chat-input">
+                    <div class="input-container">
+                        <input type="text" id="user-input" placeholder="Posez votre question ici..." autocomplete="off">
+                        <button id="voice-input-button" title="Parler">
+                            <i class="fas fa-microphone"></i>
+                        </button>
+                        <button id="voice-output-toggle" title="Activer/Désactiver la voix">
+                            <i class="fas fa-volume-up"></i>
+                        </button>
+                        <button id="send-button">
+                            <i class="fas fa-paper-plane"></i>
+                        </button>
+                    </div>
+                    <div class="quick-questions">
+                        <span>Questions rapides :</span>
+                        <button class="quick-btn" data-query="C1">Chercher C1</button>
+                        <button class="quick-btn" data-query="Art10">Trouver Art10</button>
+                        <button class="quick-btn" data-query="R5">Référence R5</button>
+                        <button class="quick-btn" data-query="stock">Articles en stock</button>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="results-container">
+                <div class="results-header">
+                    <h3><i class="fas fa-search"></i> Résultats de recherche</h3>
+                    <div class="search-info" id="search-info">
+                        En attente de votre requête...
+                    </div>
+                </div>
+                <div class="results-table-container">
+                    <table class="results-table">
+                        <thead>
+                            <tr>
+                                <th>Code</th>
+                                <th>Référence</th>
+                                <th>Désignation</th>
+                                <th>Prix Gros</th>
+                                <th>Prix Détail</th>
+                                <th>Remise</th>
+                                <th>Stock</th>
+                                <th>Pertinence</th>
+                            </tr>
+                        </thead>
+                        <tbody id="results-body">
+                            <tr class="no-results">
+                                <td colspan="8">
+                                    <i class="fas fa-info-circle"></i>
+                                    <p>Aucun résultat à afficher. Posez une question pour voir les résultats.</p>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </main>
+        
+        <footer>
+            <div class="footer-content">
+                <p><i class="fas fa-university"></i> Bibliothèque Borj-El-Eilm &copy; 2025- Système de recherche intelligent</p>
+                <p class="tech-info">Technologies : Python Flask, TF-IDF, Similarité cosinus, JavaScript</p>
+            </div>
+        </footer>
+    </div>
+
+    <script src="{{ url_for('static', filename='script.js') }}"></script>
+</body>
+</html>
